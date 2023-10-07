@@ -1,7 +1,7 @@
 {
 	"name": "zettelkasten-outliner",
 	"version": "1.0.0",
-	"description": "This plugin provides a list representation for your Zettelkasten.",
+	"description": "Provides a list representation for your Zettelkasten.",
 	"main": "main.js",
 	"scripts": {
 		"dev": "node esbuild.config.mjs",

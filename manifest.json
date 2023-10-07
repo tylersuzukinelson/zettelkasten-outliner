@@ -3,7 +3,7 @@
 	"name": "Zettelkasten Outliner",
 	"version": "1.0.0",
 	"minAppVersion": "0.15.0",
-	"description": "This plugin provides a list representation for your Zettelkasten.",
+	"description": "Provides a list representation for your Zettelkasten.",
 	"author": "Tyler Suzuki Nelson",
 	"authorUrl": "https://www.tylersuzukinelson.com",
 	"fundingUrl": "https://www.tylersuzukinelson.com",
