@@ -3,8 +3,8 @@ import { Plugin, TFile } from 'obsidian';
 export default class ZettelkastenOutliner extends Plugin {
 	async onload() {
 		this.addCommand({
-			id: 'zettelkasten-outliner-create-outline',
-			name: 'Create Zettelkasten Outline',
+			id: 'create-outline',
+			name: 'Create outline',
 			callback: async () => {
 				const currentFile = this.app.workspace.getActiveFile();
 				if (currentFile) {
