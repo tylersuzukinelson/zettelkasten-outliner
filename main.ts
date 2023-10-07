@@ -1,19 +1,7 @@
 import { Plugin, TFile } from 'obsidian';
 
-interface ZettelkastenOutlinerSettings {
-	mySetting: string;
-}
-
-const DEFAULT_SETTINGS: ZettelkastenOutlinerSettings = {
-	mySetting: 'default'
-}
-
 export default class ZettelkastenOutliner extends Plugin {
-	settings: ZettelkastenOutlinerSettings;
-
 	async onload() {
-		await this.loadSettings();
-
 		this.addCommand({
 			id: 'zettelkasten-outliner-create-outline',
 			name: 'Create Zettelkasten Outline',
@@ -25,10 +13,6 @@ export default class ZettelkastenOutliner extends Plugin {
 				}
 			}
 		});
-	}
-
-	onunload() {
-
 	}
 
 	getChildrenFiles(file: TFile): TFile[] {
@@ -56,13 +40,5 @@ export default class ZettelkastenOutliner extends Plugin {
 		}
 
 		return `${identation}- [[${file.path.replace(/\.md$/, "")}]]\n`;
-	}
-
-	async loadSettings() {
-		this.settings = Object.assign({}, DEFAULT_SETTINGS, await this.loadData());
-	}
-
-	async saveSettings() {
-		await this.saveData(this.settings);
 	}
 }
