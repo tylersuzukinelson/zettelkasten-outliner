@@ -5,13 +5,21 @@ export default class ZettelkastenOutliner extends Plugin {
 		this.addCommand({
 			id: 'create-outline',
 			name: 'Create outline',
-			callback: async () => {
+			checkCallback: (checking: boolean) => {
 				const currentFile = this.app.workspace.getActiveFile();
-				if (currentFile) {
-					const outputFile = await this.app.vault.create(`Zettelkasten Outline ${new Date().getTime()}.md`, "");
-					this.parseZettel(outputFile, currentFile, 0);
+
+				if (!!currentFile) {
+					if (checking) {
+						return true;
+					} else {
+						this.app.vault.create(`Zettelkasten Outline ${new Date().getTime()}.md`, "").then((outputFile: TFile) => {
+							this.parseZettel(outputFile, currentFile, 0);
+						});
+					}
+				} else {
+					return false;
 				}
-			}
+			},
 		});
 	}
 
