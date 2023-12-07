@@ -15,8 +15,8 @@ export default class ZettelkastenOutliner extends Plugin {
 						const outlineName = `Zettelkasten Outline ${new Date().getTime()}.md`;
 						this.app.vault.create(outlineName, "").then((outputFile: TFile) => {
 							this.parseZettel(outputFile, currentFile, 0);
+							this.app.workspace.openLinkText(outputFile.name, "", true);
 						});
-						this.app.workspace.openLinkText(outlineName, "", true);
 					}
 				} else {
 					return false;
