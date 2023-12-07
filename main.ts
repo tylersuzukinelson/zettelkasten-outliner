@@ -12,7 +12,8 @@ export default class ZettelkastenOutliner extends Plugin {
 					if (checking) {
 						return true;
 					} else {
-						this.app.vault.create(`Zettelkasten Outline ${new Date().getTime()}.md`, "").then((outputFile: TFile) => {
+						const outlineName = `Zettelkasten Outline ${new Date().getTime()}.md`;
+						this.app.vault.create(outlineName, "").then((outputFile: TFile) => {
 							this.parseZettel(outputFile, currentFile, 0);
 						});
 					}
@@ -25,9 +26,13 @@ export default class ZettelkastenOutliner extends Plugin {
 
 	getChildrenFiles(file: TFile): TFile[] {
 		let children = []	as TFile[];
-		const linkToFile = `[[${file.path.replace(/\.md$/, "")}]]`;
+		const linkToFile = `[[${file.name.replace(/\.md$/, "")}]]`;
+		const fullLinkToFile = `[[${file.path.replace(/\.md$/, "")}]]`;
 		this.app.vault.getMarkdownFiles().forEach((markdownFile) => {
-			if (this.app.metadataCache.getFileCache(markdownFile)?.frontmatter?.parent === linkToFile) {
+			if (
+				this.app.metadataCache.getFileCache(markdownFile)?.frontmatter?.parent === linkToFile
+				|| this.app.metadataCache.getFileCache(markdownFile)?.frontmatter?.parent === fullLinkToFile
+			) {
 				children.push(markdownFile);
 			}
 		});
