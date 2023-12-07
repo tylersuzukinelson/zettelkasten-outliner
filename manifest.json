@@ -1,7 +1,7 @@
 {
 	"id": "zettelkasten-outliner",
 	"name": "Zettelkasten Outliner",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"minAppVersion": "0.15.0",
 	"description": "Provides a list representation for your Zettelkasten.",
 	"author": "Tyler Suzuki Nelson",
