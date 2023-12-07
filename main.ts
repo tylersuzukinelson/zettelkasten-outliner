@@ -53,6 +53,6 @@ export default class ZettelkastenOutliner extends Plugin {
 			identation = identation.concat("  ");
 		}
 
-		return `${identation}- [[${file.path.replace(/\.md$/, "")}]]\n`;
+		return `${identation}- ![[${file.path.replace(/\.md$/, "")}]]\n`;
 	}
 }
