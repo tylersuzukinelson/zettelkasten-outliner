@@ -1,6 +1,6 @@
 {
 	"name": "zettelkasten-outliner",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"description": "Provides a list representation for your Zettelkasten.",
 	"main": "main.js",
 	"scripts": {
